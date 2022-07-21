@@ -5,6 +5,23 @@ import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import funcoes
+
+def compara_benchmark(nome):
+    fig, ax = plt.subplots(figsize=(15,6))
+
+    (funcoes.importa_benchmark('fii').IFIX/funcoes.importa_benchmark('fii').IFIX.iloc[0]).plot()
+    (funcoes.importa_benchmark('acao').IBOV/funcoes.importa_benchmark('acao').IBOV.iloc[0]).plot()
+    (fii.Close/fii.Close.iloc[0]).plot()
+
+    nomes = ['IFIX', 'IBOV', f'{nome}']
+
+    plt.title(f'Comparativo de {nome} com benchmarks')
+
+    plt.savefig(f'comparativo_benchmarks.png')
+
+    plt.legend(nomes)
+
 
 
 def razao_preco_media(stock, start, mm):
