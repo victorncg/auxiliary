@@ -4,6 +4,15 @@
 import yfinance as yf
 import pandas as pd
 
+# Retorna a data de criação do relatório
+def def_data():
+    import datetime
+    today = datetime.date.today()
+
+    des_data = str(today.strftime('Relatório criado no dia %d de %b de %Y'))
+
+    return des_data
+
 
 def razao_preco_media(stock, start, mm):
     
